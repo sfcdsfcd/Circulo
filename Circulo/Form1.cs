@@ -16,7 +16,9 @@ namespace Circulo
 
         private void Btn_Click(object sender, EventArgs e)
         {
+            
             Draw();
+            
         }
 
         
@@ -26,14 +28,14 @@ namespace Circulo
             Pcb.Refresh();
             Point ponto1 = new Point(Convert.ToInt32(Txt1.Text), Convert.ToInt32(Txt2.Text));
             float raio = 50;
-            Point ponto2 = new Point(Convert.ToInt32(Txt3.Text), Convert.ToInt32(Txt4.Text) + (int)raio);
+            Point ponto2 = new Point(Convert.ToInt32(Txt3.Text), Convert.ToInt32(Txt4.Text));
             graphics.SmoothingMode = SmoothingMode.HighQuality;
 
 
-            for (int x = 0; x < 1000; ++x)
+            for (int x = 0; x < Pcb.Width; ++x)
             {
 
-                for (int y = 0; y < 1000; ++y)
+                for (int y = 0; y < Pcb.Height; ++y)
                 {
                     Point PontoAleatorio = new Point(x, y);
                     if (EquacaoCirco(ponto1, PontoAleatorio) == raio)
@@ -69,25 +71,9 @@ namespace Circulo
 
             
             return (int)Math.Sqrt(Math.Pow((PontoAleatorio.X - Inicial.X), 2) + Math.Pow((PontoAleatorio.Y - Inicial.Y), 2));
-            //((int)raiovalor == (int)raio);
+            
         }
 
-
-        private void Txt2_KeyPress(object sender, KeyPressEventArgs e)
-        {
-            if (e.KeyChar == 13)
-            {
-                Btn_Click(sender, e);
-            }
-        }
-
-        private void Txt1_KeyPress(object sender, KeyPressEventArgs e)
-        {
-            if (e.KeyChar == 13)
-            {
-                Btn_Click(sender, e);
-            }
-        }
     }
 }
 
