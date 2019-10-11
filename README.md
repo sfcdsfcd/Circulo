@@ -1,4 +1,4 @@
 # Circulo
 
 
-Projeto para fazer uma circunferencia em C#
+Projeto inicial para fazer um jogo.
